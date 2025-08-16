@@ -1,18 +1,18 @@
 version:1
 services:
-  application:
-    image: firstimage
-    ports:
-      9092:9092
-   # dependson: mysqldb
-    volumes:
-       /data/springboot-app
+        application:
+          image: firstimage
+          ports:
+            9092:9092
+          # dependson: mysqldb
+          volumes:
+             /data/springboot-app
 
-   application02:
-      image : hello-world
-      ports: 80
-      volumes:
-       /data/hello-world
+        application02:
+          image : hello-world
+          ports: 80
+          volumes:
+            /data/hello-world
   
 #  mysqldb:
 #   image: mysql:8
