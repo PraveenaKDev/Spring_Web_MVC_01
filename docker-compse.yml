@@ -1,26 +1,23 @@
-version:1
+version: "2.2"
+
 services:
-        application:
-          image: firstimage
-          ports:
-            9092:9092
-          # dependson: mysqldb
-          volumes:
-             /data/springboot-app
+        application01:
+           image: firstimage
+           ports:
+             - 9092:9092
+           volumes:
+            - "/data/spring-boot"
+           networks:
+             - network01
 
         application02:
-          image : hello-world
-          ports: 80
-          volumes:
-            /data/hello-world
-  
-#  mysqldb:
-#   image: mysql:8
-#   networks:
-#     spring-boot-network-01
-#   environment:
-#     MYSQL_ROOT_PASSWORD=root
-#     MYSQL_DATABASE=sbms
-#   volumes:
-#      /data/mysql
-networks:  spring-boot-network-01
+           image: hello-world
+           ports:
+             - 80
+           volumes:
+            - "/data/hello-world"
+           networks:
+             - network01
+
+networks:
+       network01:
